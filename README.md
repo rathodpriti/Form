@@ -1,61 +1,121 @@
-var username = document.getElementById("username");
-var password = document.getElementById("password");
-var email = document.getElementById("email");
-var birthdate = document.getElementById("birthdate");
-var city = document.getElementById("city");
-var form= document.getElementById("form");
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SignUp Form</title>
+    <style>
+      body{
+      background:gray
+      }
+      .wrap{
+      width:350px;
+      margin:auto;
+      background:#00adee;
+      margin-top:50px;
+      padding:5px;
+      }
+      form
+      {
+      padding:10px;
+      font-family:arial;
+      border:1px dotted white;
+      margin:10px;
+      }
+      h2{
+      text-align:center;
+      background:pink;
+      color:white;
+      padding:10px;
+      border-radius:10px;
+      
+      }
+      input{
+      padding:10px;
+      margin:10px;
+      border-radius:5px;
+      border:none;
+      }
+      input[type=text],input[type=email],input[type=number],input[type=password]
+      {
+      width:90%;
+      }
+      input[type=submit]{
+      width:95%;
+      background:orange;
+      cursor:pointer;
+      font-size:18px;
+      font-weight:bold;
+      color:white;
+      }
+      input[type=submit]:hover{
+      background:green;
+      }
+      select{
+      padding:12px;
+      width:30%;
+      border-radius:4px;
+      }
+      
+      option{
+      padding:12px;
+      width:20%;
+      
+      }
+      </style>
+  </head>
 
-var c=document.getElementById("c");
-var cpp=document.getElementById("cpp");
-var java=document.getElementById("java");
-var javascript=document.getElementById("javascript");
-var python=document.getElementById("python");
-
-form.addEventListener("submit", function (event) {
-    if (!(validateUsername(username.value) && validatePassword(password.value))) {        
-        event.preventDefault();
-        if(!validateUsername(username.value)){
-            alert("Username rules: Less than 20 characters")
-        }
-        if(!validatePassword(password.value)){
-            alert("Password rules: Min length 8 characters. Contains one lowercase letter, one uppercase letter and one special character ")
-        }
-    }
-    else{
-        document.write("Username: "+username.value);
-        document.write("<br>Password: "+password.value);
-        document.write("<br>Email: "+email.value);
-        document.write("<br>Birthdate: "+birthdate.value);
-        document.write("<br>City: "+city.value);
-        document.write("<br>Programming Languages Known:");
-        if(c.checked==true){
-            document.write("<br>"+c.value);
-        }
-        if(cpp.checked==true){
-            document.write("<br>"+cpp.value);
-        }
-        if(java.checked==true){
-            document.write("<br>"+java.value);
-        }
-        if(javascript.checked==true){
-            document.write("<br>"+javascript.value);
-        }
-        if(python.checked==true){
-            document.write("<br>"+python.value);
-        }
-    
-    }
-})
-
-function validateUsername(username) {
-    return username.length <= 20;
-}
-
-function validatePassword(password) {
-    if(password.length >= 8 && /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s)/.test(password)){
-        return true;
-    }
-    else{
-        return false;
-    }
-}
+  <body>
+    <h2>Online Form</h2>
+    <form id="form">
+      <div>
+        Username:
+        <br />
+        <input type="text" id="username" required />
+      </div>
+      <br />
+      <div>
+        Password:
+        <br />
+        <input type="password" id="password" required />
+      </div>
+      <br />
+      <div>
+        Email:
+        <br />
+        <input type="email" id="email" required />
+      </div>
+      <br />
+      <div>
+        Birth date:
+        <br />
+        <input type="date" id="birthdate" required />
+      </div>
+      <br />
+      <div>
+        City:
+        <br />
+        <select id="city">
+          <option>Mumbai</option>
+          <option>New Delhi</option>
+          <option>Bangalore</option>
+          <option>Hyderabad</option>
+        </select>
+      </div>
+      <br />
+      <div>
+        Programming Languages Known:
+        <br />
+        <input type="checkbox" id="c" value="C" />C
+        <input type="checkbox" id="cpp" value="C++" />C++
+        <input type="checkbox" id="java" value="Java" />Java
+        <input type="checkbox" id="javascript" value="JavaScript" />JavaScript
+        <input type="checkbox" id="python" value="Python" />Python
+      </div>
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+    <script src="index.js"></script>
+  </body>
+</html>
